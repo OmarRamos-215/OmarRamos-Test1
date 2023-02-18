@@ -84,6 +84,7 @@ app.delete('/students/delete/:id', (req, res) => {
   if (student) {
     const index = studentsTable.findIndex(student => student.id == id);
     studentsTable.splice(index, 1);
+    res.send(`Student ${student.username} deleted`);
   } else {
     res.send('Student not found');
   }
